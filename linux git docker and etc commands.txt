@@ -1,0 +1,35 @@
+cat > filename.txt - создание файлов и директорий
+echo> filename.txt
+
+mv old_filename new_filename   - перемещение и переименовывание файлов и директорий
+
+rm filename - удаление файлов и директорий
+
+
+
+
+
+
+
+////////// GIT
+
+git init - создать репозиторий
+rm .git* - удалить репозиторий
+git add filename /or .  - добавление файлов, каталогов для будущего коммита
+git commit -m 'some text'  - создание коммита
+
+git remote add <remote-name> <remote-link> - добавление ссылки на удаленный репозиторий git remote add origin somelink.git
+
+git remote show origin - показать ссылку на удаленный репозиторий
+git remote -v - показать список удаленных репозиториев
+git remote rm <remote-name> - удаление ссылки на удаленный репозиторий
+
+git push origin master - отправка изменений в удаленный репозиторий
+
+git branch <new-branch-name> - создание новой ветки
+git branch -v - показать список веток
+git checkout <new-branch-name> - переключение на другую ветку
+
+git merge <branch-name> - слияние ветки branch-name с текущей
+
+git status
