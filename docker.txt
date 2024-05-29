@@ -1,0 +1,44 @@
+docker build -t project-name . - собрать образ докер (тег будет latest)
+docker build -t project-name:v0.0.1 . - собрать образ, с версией (отображается в теге)
+
+docker buildx create --name BUILDER_NAME --use --bootstrap   - создаем билдер, он предоставляет расширенный функционал для проведения билдов
+docker buildx build --push --platform linux/amd64,linux/arm64 -t USERNAME/CONTAINER_NAME:latest .    - билдим образ для нескольких платформ
+
+docker images   - показывает информацию об образе
+
+docker run project-name   - без указывания версии, запустится образ с тегом latest
+docker run -p NewPort:ProtOfProgram project-name   - запускаем образ на новом порту (пригодится, когда порт исп. программой чем-то занят)
+docker run -p 8081:8080 -d project-name   - запускаем контейнер на фоне
+docker run -p 8081:8080 --name CONTAINER_NAME -d IMAGE_NAME   - контейнерам по умолчанию даются рандомные имена, но мы можем задать свои
+
+docker rmi IMAGE_ID   - удаляет образ
+docker stop CONTAINER_ID   - останавливает контейнер
+docker rm CONTAINER_ID    - удаляет контейнер
+
+docker ps - показывает список наших контейнеров   (открываем в другой консоли)
+docker kill containerId  - останавливаем выполнение программы в контейнере  (тоже в другой консоли)
+
+docker restart CONTAINER_ID or CONTAINER_NAME   - перезапускает контейнер
+
+docker logs CONTAINER_ID or CONTAINER_NAME   - показывает все логи программы разом
+docker logs -f CONTAINER_ID or CONTAINER_NAME    - показывает логи по мере их поступления
+docker logs --tail 100 CONTAINER_ID or CONTAINER_NAME     - показывает последние 100 логов (может быть любое число).
+docker logs --tail 100 -f CONTAINER_ID or CONTAINER_NAME   -  Флаги f, --tail можно комбинировать
+
+docker stop $(docker ps -a -q)    - возвращает список ID всех контейнеров
+docker rm $(docker ps -a -q)     - удаляет все контейнеры
+
+
+docker pull IMAGE  - скачиваем образ c docker-hub
+
+docker tag CONTAINER_NAME NEW_CONTAINER_NAME  - меняем название нашего локального образа (лучше на такое же как название нашего репозитория в docker-hub)
+docker push REPOSITORY_NAME:latest   - загружаем наш образ в репозиторий Docker-hub (нужно создаеть его там заранее)
+
+
+docker login   - Команда для авторизации на Docker-hub
+
+docker compose up - запускает все контейнеры настроенные в compose.yml
+docker compose up -d (или любые другие флаги для логов и т.д) - запускает все контейнеры на фоне
+
+docker compose down  - останавливает все запущенные контейнеры
+docker compose down CONTAINER_NAME - останавливает контейнеры по отдельности 

@@ -1,9 +1,24 @@
+ssh root@ip_Of_VPS_Server - подключаемся к VPS серверу
+
+ls - показывает все папки в директории
+pwd - показывает текущую директорию
+
+cd ../ - возвращается на уровень выше    
+cd ~  or  cd / - возвращается в корневую папку
+cd ~/pathname/otc - переходит в любую указанную папку из любого места
+
 cat > filename.txt - создание файлов и директорий
-echo> filename.txt
+echo> filename.txt - создание файлов и директорий
 
 mv old_filename new_filename   - перемещение и переименовывание файлов и директорий
 
 rm filename - удаление файлов и директорий
+
+sudo systemctl start PROGRAM_NAME - запустить программу
+sudo systemctl status PROGRAM_NAME - проверить статус программы
+sudo systemctl enable PROGRAM_NAME.service - включать программу автоматически при перезапуске/включении системы
+sudo systemctl stop PROGRAM_NAME - выключить программу
+sudo systemctl restart PROGRAM_NAME - перезапустить программу
 
 
 
